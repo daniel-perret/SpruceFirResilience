@@ -59,12 +59,12 @@ If you have questions about any of the materials contained here, please contact 
 
 ### Data
 
-This code loads the dataframes used for survival, regeneration, and recruitment models. All the information contained in these dataframes comes from publicly-available sources. Read the descriptions that accompany each file to for information about data fields and values. Some fields were calculated following procedures and using code sourced from [Perret et al. 2023](https://www.sciencedirect.com/science/article/abs/pii/S0378112723003626?via%3Dihub).
+This code loads the dataframes used for survival, regeneration, and recruitment models. All the information contained in these dataframes comes from publicly-available sources. The repository README file contains descriptions of each file and fields it contains. Some fields were calculated following procedures and using code sourced from [Perret et al. 2023](https://www.sciencedirect.com/science/article/abs/pii/S0378112723003626?via%3Dihub).
 
 ```{r}
-ind.mort.dat <- read.csv("mortdat_forDryad.csv",header=T) # for survival model
-seed.dat <- read.csv("seeddat_forDryad.csv",header=T) # for regeneration model
-sap.dat <- read.csv("sapdat_forDryad.csv",header=T) # for recruitment model
+ind.mort.dat <- read.csv("mortdat.csv",header=T) # for survival model
+seed.dat <- read.csv("seeddat.csv",header=T) # for regeneration model
+sap.dat <- read.csv("sapdat.csv",header=T) # for recruitment model
 ```
 
 ### Model code
