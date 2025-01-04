@@ -69,7 +69,7 @@ sap.dat <- read.csv("sapdat_forDryad.csv",header=T) # for recruitment model
 
 ### Model code
 
-Note: these models take a long time to run (\~2 days on a machine with 48Gb RAM). If you're interested in just playing with the model results themselves, run the commented code below each model that loads the model object (saved as a \*.Rdata file).
+Note: these models take a long time to run (\~2 days on a machine with 48Gb RAM).
 
 #### Survival
 
@@ -99,8 +99,6 @@ m19 <- brm(data = ind.mort.dat %>%
            chains = 4,
            cores = getOption("mc.cores",4))
 
-#load("data/m19v7.Rdata")
-
 #### Engelmann spruce
 
 m93 <- brm(data = ind.mort.dat %>%
@@ -126,8 +124,6 @@ m93 <- brm(data = ind.mort.dat %>%
            chains = 4,
            cores = getOption("mc.cores",4))
 
-#load("data/m93v7.Rdata")
-
 ```
 
 #### Regeneration
@@ -149,8 +145,6 @@ s19 <- brm(data = seed.dat %>%
            cores = getOption("mc.cores",4),
            control = list(adapt_delta = 0.95))
 
-#load("data/s19v7_cmd.Rdata")
-
 #### Engelmann spruce
 
 s93 <- brm(data = seed.dat %>%
@@ -166,8 +160,6 @@ s93 <- brm(data = seed.dat %>%
            chains = 4,
            cores = getOption("mc.cores",4),
            control = list(adapt_delta = 0.95))
-
-#load("data/s93v7_cmd.Rdata")
 
 ```
 
@@ -189,8 +181,6 @@ r19 <- brm(data = sap.dat %>%
            chains = 4,
            cores = getOption("mc.cores",4),
            control = list(adapt_delta = 0.95))
-
-#load("data/r19v7_cmd.Rdata")
 
 #### Engelmann spruce
 
@@ -292,7 +282,6 @@ m.traj <- brm(bf(group | trials(size) ~ m.pred.19*s.pred.19*r.pred.19 +
            chains = 4,
            cores = getOption("mc.cores",4))
 
- #load("data/m_traj.Rdata")
 ```
 
 ## Future scenarios
@@ -1024,6 +1013,9 @@ This figure shows both the areal breakdown of each joint trajectory under future
 
 ```{r bar charts}
 # First, summarise future scenario posterior predictions across trajectory categories, weighted by spruce-fir area in each ecoregion
+
+# this is an sf object that contains ecoregion subsection-level population estimates and associated spatial information (i.e., area of spruce-fir forest) in object 'dall.er.ablapien'
+load("joint_popestimates2.Rdata")
 
 p.m.test <- p.m.test %>%
   left_join(.,
