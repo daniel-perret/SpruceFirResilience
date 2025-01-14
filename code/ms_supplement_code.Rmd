@@ -271,7 +271,7 @@ dat$group <- with(dat, cbind(resilience,restructuring,reassembly,replacement))
 
 ### Model code
 
-Note: this takes some time to run. You can also load the model object itself by running the commented code below.
+Note: this takes some time to run. 
 
 ```{r}
 m.traj <- brm(bf(group | trials(size) ~ m.pred.19*s.pred.19*r.pred.19 +
@@ -1098,11 +1098,12 @@ ggplot() +
           lty=2) +
   scale_color_steps2(low = "firebrick4",mid="white", high = "dodgerblue2",
                      aesthetics = "fill", midpoint = 0,
-                     breaks=c(-0.75,-0.5,-0.25,0,0.25,0.5,0.75),
+#                     breaks=c(-0.75,-0.5,-0.25,0,0.25,0.5,0.75),
+                     breaks=c(-0.8,-0.6,-0.4,-0.2,0,0.2,0.4,0.6,0.8),
                      name="") +
   lims(x = c(-2.5e6, -0.5e6),
        y = c(1.00e6,3.25e6)) +
-  theme(legend.position="none",
+  theme(legend.position="right",
         panel.background = element_rect(fill="skyblue1"))  
 
 ```

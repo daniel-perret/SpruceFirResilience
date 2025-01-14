@@ -1,3 +1,9 @@
+# Hidden data and code files
+
+code/
+data/
+figures/
+
 # History files
 .Rhistory
 .Rapp.history
